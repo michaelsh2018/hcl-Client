@@ -1,0 +1,26 @@
+<p>Products</p>
+<div>
+ <h2>filters</h2> 
+ <input type="text" placeholder="name" [{ngModel}]="name">
+ <input type="number" placeholder="rating" [{ngModel}]="rating">
+ <input type="text" placeholder="category" [{ngModel}]="category">
+</div>
+
+
+<div>
+  <h2>Products</h2>
+  <a *ngFor = "let product of products | productPipe : name : rating : category "  [routerLink]= "['/product',product.id]">
+    <div [routerLink]= "['/product',product.id]">
+      {{product.name}}
+    </div>
+    <div [routerLink]= "['/product',product.id]">
+      {{product.image}}
+    </div>
+    <div >
+      {{product.rating}}
+    </div>
+    <div>
+      {{product.category}}
+    </div>
+  </a>
+</div>
